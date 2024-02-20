@@ -60,7 +60,7 @@ In the context of brew, a cask is a program with graphic user interface (GUI).
 brew install --cask visual-studio-code
 ```
 
-You can then syncronize with you regular settings you're used to on your local machine. As you may add some extensions, best would be to syncronize and un-syncronize so you can get your previous extensions and add new ones without messing with your local config.
+Don't forget to add your favorite extensions and recommended extensions once you cloned the repo.
 
 ## macOS Terminal Theme
 
@@ -77,27 +77,20 @@ If asked "Do you want to change your default shell to zsh?", press `Y`
 
 ## Dotfile
 
-You can use this basic setup for setting your dotfiles.
+These are basic scripts to set up your config files in your $HOME directory.
+This will basically add gitconfig, zprofile and zshrc basic config and also modify SSH configuration.
 
-Clone this repo:
-
-Open your terminal and set a variable for your GitHub username:
-
-### Dotfiles installer
+1. Clone this repo and run the script
 
 ```bash
 zsh install.sh
 ```
 
-### git installer
-
-Run the `git` installer:
+Then run the `git` setup installer:
 
 ```bash
 zsh git_setup.sh
 ```
-
-:point_up: This will **prompt** you for your name (`FirstName LastName`) and your email.
 
 ## GitHub CLI
 
@@ -134,93 +127,6 @@ To check that you are properly connected, type:
 
 ```bash
 gh auth status
-```
-
-## .gitconfig
-
-This config file should be located in your $HOME directory.
-Modify as you like, this is a nice default.
-
-```bash
-[color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-	ui = true
-
-[color "branch"]
-  current = green
-  remote = yellow
-
-[core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-  editor = code --wait
-
-[alias]
-  co = checkout
-  st = status -sb
-  br = branch
-  ci = commit
-  fo = fetch origin
-  d = !git --no-pager diff
-  dt  = difftool
-  stat = !git --no-pager diff --stat
-
-  # Set remotes/origin/HEAD -> defaultBranch (copied from https://stackoverflow.com/a/67672350/14870317)
-  remoteSetHead = remote set-head origin --auto
-
-  # Get default branch name (copied from https://stackoverflow.com/a/67672350/14870317)
-  defaultBranch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
-
-  # Clean merged branches (adapted from https://stackoverflow.com/a/6127884/14870317)
-  sweep = !git branch --merged $(git defaultBranch) | grep -E -v " $(git defaultBranch)$" | xargs -r git branch -d && git remote prune origin
-
-  # http://www.jukie.net/bart/blog/pimping-out-git-log
-  lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
-
-  # Serve local repo. http://coderwall.com/p/eybtga
-  # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
-  serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
-
-  # Checkout to defaultBranch
-  m = !git checkout $(git defaultBranch)
-
-  # Removes a file from the index
-  unstage = reset HEAD --
-
-[help]
-  autocorrect = 1
-
-[push]
-  default = simple
-
-[branch "master"]
-  mergeoptions = --no-edit
-
-[pull]
-  rebase = false
-
-[init]
-  defaultBranch = master
-[user]
-	email = maxencerobinet@gmail.com
-	name = Maxence Robinet
-[interactive]
-	diffFilter = diff-so-fancy --patch
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 ```
 
 ## Install node/nvm
@@ -263,9 +169,19 @@ To run a local server execute the following command. You may not need it as we'r
 brew services start postgresql@15
 ```
 
+## Docker
+
+Follow the link to install [Docker](https://docs.docker.com/engine/install/)
+
+## Deno
+
+```bash
+brew install deno
+```
+
 ## Chrome
 
-Install the latest version of Chrome and syncronize bookmarks using your asap.work email.
+Install the latest version of Chrome and synchronize bookmarks using your asap.work email.
 
 ## Slack
 

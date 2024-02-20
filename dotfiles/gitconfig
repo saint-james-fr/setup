@@ -49,6 +49,7 @@
   autocorrect = 1
 
 [push]
+  autoSetupRemote = true
   default = simple
 
 [branch "master"]
@@ -60,7 +61,7 @@
 [init]
   defaultBranch = master
 [user]
-	email = maxencerobinet@gmail.com
+	email = maxence@asap.work
 	name = Maxence Robinet
 [interactive]
 	diffFilter = diff-so-fancy --patch
