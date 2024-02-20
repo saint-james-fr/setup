@@ -5,7 +5,7 @@ for name in gitconfig zprofile zshrc; do
   if [ ! -d "$name" ]; then
     target="$HOME/.$name"
     current="$PWD/$name"
-    mv $current $target
+    cp $current $target
     echo "-----> Moved $current to $target"
   fi
 done
@@ -14,6 +14,7 @@ done
 if [[ $(uname) =~ "Darwin" ]]; then
   target="$HOME/.ssh/config"
   current="$PWD/config"
+  cp $current $target
   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
   echo "-----> Added SSH passphrase to the keychain"
 fi
