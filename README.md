@@ -80,11 +80,17 @@ If asked "Do you want to change your default shell to zsh?", press `Y`
 These are basic scripts to set up your config files in your $HOME directory.
 This will basically add gitconfig, zprofile and zshrc basic config and also modify SSH configuration.
 
+1. Generate a SSH key (change your email in the command below)
+
+```bash
+ssh-keygen -t ed25519 -C "USE_YOUR_EMAIL"
+```
+
 1. Clone this repo and run the script
 
 ```bash
 zsh install.sh
-```
+````
 
 Then run the `git` setup installer:
 
@@ -128,6 +134,13 @@ To check that you are properly connected, type:
 ```bash
 gh auth status
 ```
+
+## Install missing dep
+
+```
+brew install diff-so-fancy
+```
+
 
 ## Install node/nvm
 
