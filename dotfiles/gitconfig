@@ -56,7 +56,7 @@
   mergeoptions = --no-edit
 
 [pull]
-  rebase = false
+  rebase = true
 
 [init]
   defaultBranch = master
